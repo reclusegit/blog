@@ -8,8 +8,8 @@
 	<h3>Welcome to this site !</h3>
     <p>hello 
     	<span>
-    	{% if username%}
-    		{{username}}
+    	{% if username != 'anybody' %}
+    		{{username.username}}
     	{% else %}
     		null
     	{% endif %}
@@ -32,6 +32,9 @@
         <input type="text" name="q">
         <input type="submit" value="Search">
     </form>
+    {% if error %}
+    	<p type="color:red;">Please submit a search term.</p>
+    {% endif %}
 
 	<!--注销-->
 	{% if username != 'anybody' %}

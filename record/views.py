@@ -62,4 +62,4 @@ def search(request):
         issueRecord = IssueRecord.objects.filter(issueName__icontains = q)
         return render_to_response('search_results.html', {'issueRecord':issueRecord})
     else:
-    	return HttpResponse('Please submit a search term.')
+    	return HttpResponse('search_form.html', {'error':True})
