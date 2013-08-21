@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h3>Welcome to this site !</h3>
+    <p>hello 
+    	<span>
+    	{% if username%}
+    		{{username}}
+    	{% else %}
+    		null
+    	{% endif %}
+    	</span>
+     <p>
+
+	<!--问题类型-->
+	<p>
+		<select>
+			{% for i in issue %}
+				<option>{{i.name}}</option>
+			{% endfor %}
+		</select>
+	</p>    
+	
+	<br>
+	
+	<!--查询-->	
+	<form action="/search/" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Search">
+    </form>
+
+	<!--注销-->
+	{% if username != 'anybody' %}
+    	<a href="/logout/">logout</a>
+    {% else %}
+    	<a href="/login/">login</a>
+    {% endif %}
+</body>
+</html>
